@@ -8,6 +8,9 @@ TagManager:
   - Box
   - BoxPlank
   - Plank
+  - Tnt
+  - Ground
+  - Enemy
   layers:
   - Default
   - TransparentFX

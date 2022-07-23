@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private float rotateSpeed = 100, bulletSpeed = 100;
+    [SerializeField]
+    private int ammo = 4;
 
     [SerializeField]
     private Transform handPos,firePos1,firePos2;
@@ -14,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private LineRenderer laser;
 
     public GameObject bullet;
+
+    public int Ammo { get => ammo; set => ammo = value; }
 
     void Awake()
     {
@@ -33,7 +37,13 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            Shoot();
+            if(ammo > 0)
+                Shoot();
+            else
+            {
+                laser.enabled = false ;
+                //crosshair
+            }
         }
 
 
@@ -72,6 +82,8 @@ public class PlayerController : MonoBehaviour
         {
             rigidbody.AddForce(-firePos1.right * bulletSpeed, ForceMode2D.Impulse);
         }
+
+        ammo--;
 
         Destroy(tempBullet, 2);
 

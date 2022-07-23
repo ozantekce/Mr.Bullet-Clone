@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rigidbody;
     void Start()
     {
+        alive = true;
         rigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -16,10 +17,14 @@ public class Enemy : MonoBehaviour
         
     }
 
-
+    private bool alive;
     void Death()
     {
+        alive=false;
         gameObject.tag = "Untagged";
+
+        FindObjectOfType<GameManager>().CheckEnemyCount();
+
         foreach(Transform ob in transform)
         {
             ob.GetComponent<Rigidbody2D>().gravityScale = 1;
@@ -34,7 +39,7 @@ public class Enemy : MonoBehaviour
         {
             Vector2 direction = transform.position - collision.transform.position;
             direction.Normalize();
-            if (transform.GetChild(0).GetComponent<Rigidbody2D>().gravityScale<1)
+            if (alive)
             {
                 Death();
             }
@@ -44,6 +49,24 @@ public class Enemy : MonoBehaviour
 
         }
 
+        if (collision.tag == "Plank"|| collision.tag == "BoxPlank")
+        {
+            if (alive &&collision.GetComponent<Rigidbody2D>().velocity.magnitude > 1.5f)
+            {
+
+                print("Death");
+                Death();
+            }
+        }
+
+        if (collision.tag == "Ground" )
+        {
+            if (alive &&GetComponent<Rigidbody2D>().velocity.magnitude > 2)
+            {
+                print("Death");
+                Death();
+            }
+        }
 
     }
 
