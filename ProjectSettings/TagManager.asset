@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -13,9 +14,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - BodyParts
+  - Bullet
+  - BulletIgnore
   - 
   - 
   - 
@@ -46,6 +47,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 436181073
+    locked: 0
+  - name: Enemy
+    uniqueID: 3745035751
     locked: 0
   - name: Player
     uniqueID: 2984936589

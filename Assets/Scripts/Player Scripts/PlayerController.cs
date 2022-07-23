@@ -61,6 +61,19 @@ public class PlayerController : MonoBehaviour
     void Shoot()
     {
         laser.enabled=false;
+        GameObject tempBullet = Instantiate(bullet,firePos1.position,Quaternion.identity);
+        Rigidbody2D rigidbody = tempBullet.GetComponent<Rigidbody2D>();
+
+        if (transform.localScale.x > 0)
+        {
+            rigidbody.AddForce(firePos1.right * bulletSpeed,ForceMode2D.Impulse);
+        }
+        else
+        {
+            rigidbody.AddForce(-firePos1.right * bulletSpeed, ForceMode2D.Impulse);
+        }
+
+        Destroy(tempBullet, 2);
 
     }
 
