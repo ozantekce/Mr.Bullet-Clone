@@ -20,7 +20,6 @@ public class Enemy : MonoBehaviour
     void Death()
     {
         gameObject.tag = "Untagged";
-        rigidbody.gravityScale = 1;
         foreach(Transform ob in transform)
         {
             ob.GetComponent<Rigidbody2D>().gravityScale = 1;
