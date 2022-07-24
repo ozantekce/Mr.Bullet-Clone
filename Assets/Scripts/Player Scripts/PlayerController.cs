@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class PlayerController : MonoBehaviour
 
     public int Ammo { get => ammo; set => ammo = value; }
 
+
+    private bool start = false;
+
     void Awake()
     {
         
@@ -29,22 +33,29 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButton(0))
+        if (!IsMouseOverUI() /*&& !start*/)
         {
-            Aim();
-        }
-
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            if(ammo > 0)
-                Shoot();
-            else
+            if (Input.GetMouseButton(0))
             {
-                laser.enabled = false ;
-                //crosshair
+                Aim();
+                //start = true;
             }
+
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (ammo > 0)
+                    Shoot();
+                else
+                {
+                    laser.enabled = false;
+                    //crosshair
+                }
+                //start = false;
+            }
+
         }
+
 
 
     }
@@ -84,9 +95,15 @@ public class PlayerController : MonoBehaviour
         }
 
         ammo--;
+        FindObjectOfType<GameManager>().CheckBullets();
 
         Destroy(tempBullet, 2);
 
+    }
+
+    bool IsMouseOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
     }
 
 }
