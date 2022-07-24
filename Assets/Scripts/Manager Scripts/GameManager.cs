@@ -22,8 +22,19 @@ public class GameManager : MonoBehaviour
 
     private GameObject bulletsUI;
 
+    private GameObject gameOverPanel;
+
+    
+
     private void Awake()
     {
+
+
+
+        gameOverPanel = GameObject.Find("GameOverPanel");
+        gameOverPanel.SetActive(false);
+
+
         playerController = FindObjectOfType<PlayerController>();
         playerController.Ammo = blackBullets + goldenBullets;
         bulletsUI = GameObject.Find("Bullets");
@@ -43,9 +54,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
-        if(!gameOver && playerController.Ammo<=0 && enemyCount>0)
+        if(!gameOver && playerController.Ammo<=0 && enemyCount>0 
+            && GameObject.FindGameObjectsWithTag("Bullet").Length<=0)
         {
             gameOver = true;
+            gameOverPanel.SetActive(true);
         }
 
     }

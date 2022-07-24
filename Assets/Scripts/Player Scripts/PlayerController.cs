@@ -21,11 +21,15 @@ public class PlayerController : MonoBehaviour
     public int Ammo { get => ammo; set => ammo = value; }
 
 
-    private bool start = false;
+    [SerializeField]
+    private GameObject crosshair;
 
     void Awake()
     {
-        
+
+        crosshair = GameObject.Find("Crosshair");
+        crosshair.SetActive(false);
+
         laser.enabled = false;
 
     }
@@ -33,12 +37,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (!IsMouseOverUI() /*&& !start*/)
+        if (!IsMouseOverUI())
         {
             if (Input.GetMouseButton(0))
             {
                 Aim();
-                //start = true;
             }
 
 
@@ -49,9 +52,8 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     laser.enabled = false;
-                    //crosshair
+                    crosshair.SetActive(false);
                 }
-                //start = false;
             }
 
         }
@@ -64,6 +66,8 @@ public class PlayerController : MonoBehaviour
 
     void Aim()
     {
+        crosshair.SetActive(true);
+        crosshair.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + (Vector3.forward *10);
 
         Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - handPos.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg +90;
@@ -81,6 +85,7 @@ public class PlayerController : MonoBehaviour
 
     void Shoot()
     {
+        crosshair.SetActive(false);
         laser.enabled=false;
         GameObject tempBullet = Instantiate(bullet,firePos1.position,Quaternion.identity);
         Rigidbody2D rigidbody = tempBullet.GetComponent<Rigidbody2D>();
