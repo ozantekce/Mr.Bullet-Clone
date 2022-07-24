@@ -135,6 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff67bc24cc8795d479a5c552adb32b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxHit: {fileID: 8300000, guid: ec576d792aa2d81438dd4239223d3b27, type: 3}
+  plankHit: {fileID: 8300000, guid: 9244089cd1f793c498e2191d6b3e2048, type: 3}
+  groundHit: {fileID: 8300000, guid: 8386f3ddc1823154ebe5506d66eff983, type: 3}
+  explodeHit: {fileID: 8300000, guid: 9c8c2d6a4dfa68e46a2dbf0490bd2abe, type: 3}
 --- !u!1 &5330098767070541464
 GameObject:
   m_ObjectHideFlags: 0

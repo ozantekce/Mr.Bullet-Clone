@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject crosshair;
 
+    public AudioClip gunShot;
+
     void Awake()
     {
 
@@ -101,6 +103,7 @@ public class PlayerController : MonoBehaviour
 
         ammo--;
         FindObjectOfType<GameManager>().CheckBullets();
+        SoundManager.instance.PlaySoundFX(gunShot, 0.3f);
 
         Destroy(tempBullet, 2);
 

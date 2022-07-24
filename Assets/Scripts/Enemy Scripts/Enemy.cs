@@ -5,11 +5,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
+    public AudioClip death;
+
     private Rigidbody2D rigidbody;
     void Start()
     {
         alive = true;
         rigidbody = GetComponent<Rigidbody2D>();
+        
     }
 
     void Update()
@@ -22,7 +25,7 @@ public class Enemy : MonoBehaviour
     {
         alive=false;
         gameObject.tag = "Untagged";
-
+        SoundManager.instance.PlaySoundFX(death, 0.75f);
         FindObjectOfType<GameManager>().CheckEnemyCount();
 
         foreach(Transform ob in transform)

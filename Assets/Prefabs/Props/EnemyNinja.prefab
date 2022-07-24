@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 3001767060249510921, guid: 5390055123c625e42aa9bc25e63e8c91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.29714286, y: 0.9057143}
@@ -198,7 +198,7 @@ SpriteRenderer:
   m_SortingOrder: -1
   m_Sprite: {fileID: 6987423892546517596, guid: 7b0d7fa1f1265004397769e9c7ff6788, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.27142859, y: 0.87142855}
@@ -343,7 +343,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -1353735933490891112, guid: 5390055123c625e42aa9bc25e63e8c91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.12, y: 0.9657143}
@@ -619,7 +619,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -7132172409892320828, guid: 5390055123c625e42aa9bc25e63e8c91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.66571426, y: 0.68}
@@ -766,7 +766,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 6987423892546517596, guid: 7b0d7fa1f1265004397769e9c7ff6788, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.27142859, y: 0.87142855}
@@ -851,7 +851,7 @@ GameObject:
   - component: {fileID: 2077697378450799761}
   m_Layer: 0
   m_Name: EnemyNinja
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -943,6 +943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90472c0f7073a5b468533fa1d97af1de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  death: {fileID: 8300000, guid: 351aa037cbb235e469bf2fd74da89f4d, type: 3}
 --- !u!1 &2077697378464283664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1164,7 +1165,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -1353735933490891112, guid: 5390055123c625e42aa9bc25e63e8c91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.12, y: 0.9657143}
