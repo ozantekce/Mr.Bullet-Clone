@@ -22,17 +22,12 @@ public class GameManager : MonoBehaviour
 
     private GameObject bulletsUI;
 
-    private GameObject gameOverPanel;
 
     
 
     private void Awake()
     {
 
-
-
-        gameOverPanel = GameObject.Find("GameOverPanel");
-        gameOverPanel.SetActive(false);
 
 
         playerController = FindObjectOfType<PlayerController>();
@@ -58,7 +53,7 @@ public class GameManager : MonoBehaviour
             && GameObject.FindGameObjectsWithTag("Bullet").Length<=0)
         {
             gameOver = true;
-            gameOverPanel.SetActive(true);
+            GameUI.instance.GameOVerScreen();
         }
 
     }
@@ -72,7 +67,7 @@ public class GameManager : MonoBehaviour
             GameObject.FindGameObjectWithTag("GoldenBullet").SetActive(false);
         }else if(blackBullets > 0)
         {
-            goldenBullets--;
+            blackBullets--;
             GameObject.FindGameObjectWithTag("BlackBullet").SetActive(false);
         }
 
@@ -84,7 +79,7 @@ public class GameManager : MonoBehaviour
         enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
         if(enemyCount <= 0)
         {
-            print("Win");
+            GameUI.instance.WinScreen();
         }
 
     }
