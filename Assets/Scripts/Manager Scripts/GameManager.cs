@@ -21,13 +21,15 @@ public class GameManager : MonoBehaviour
     public GameObject blackBullet, goldenBullet;
 
     private GameObject bulletsUI;
-
-
+ 
+    
+    private int levelNumber;
     
 
     private void Awake()
     {
 
+        levelNumber = PlayerPrefs.GetInt("Level", 1);
 
 
         playerController = FindObjectOfType<PlayerController>();
@@ -80,6 +82,10 @@ public class GameManager : MonoBehaviour
         if(enemyCount <= 0)
         {
             GameUI.instance.WinScreen();
+            if(levelNumber >= SceneManager.GetActiveScene().buildIndex)
+            {
+                PlayerPrefs.SetInt("Level", levelNumber + 1);
+            }
         }
 
     }
