@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
  
     
     private int levelNumber;
+
+    private Animator fadeAnim;
     
 
     private void Awake()
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
 
         levelNumber = PlayerPrefs.GetInt("Level", 1);
 
+        fadeAnim = GameObject.Find("Fade").GetComponent<Animator>();
 
         playerController = FindObjectOfType<PlayerController>();
         playerController.Ammo = blackBullets + goldenBullets;
@@ -91,21 +94,32 @@ public class GameManager : MonoBehaviour
     }
 
 
+    private IEnumerator FadeIn(int SceneIndex)
+    {
+
+        fadeAnim.SetTrigger("End");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(SceneIndex);
+
+    }
+
+
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        StartCoroutine(FadeIn(SceneManager.GetActiveScene().buildIndex));
+        
     }
 
 
     public void NextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        StartCoroutine(FadeIn(SceneManager.GetActiveScene().buildIndex+1));
     }
 
 
     public void Exit()
     {
-        SceneManager.LoadScene(0);
+        StartCoroutine(FadeIn(0));
     }
 
 }
