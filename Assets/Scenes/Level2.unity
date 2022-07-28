@@ -560,17 +560,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6646e8e05bb07794d8dccab848cb26b2, type: 3}
---- !u!1 &741129550 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 129418478618896508, guid: 6646e8e05bb07794d8dccab848cb26b2, type: 3}
-  m_PrefabInstance: {fileID: 741129549}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &741129551 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 129418478618896509, guid: 6646e8e05bb07794d8dccab848cb26b2, type: 3}
   m_PrefabInstance: {fileID: 741129549}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 741129550}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e775ffca1b8d5e4ea3babb4908015af, type: 3}
@@ -1094,7 +1089,7 @@ PrefabInstance:
     - target: {fileID: 103297109934187129, guid: c08ecfbbe69f12c40bff933c29d16810, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 741129550}
+      objectReference: {fileID: 741129551}
     - target: {fileID: 103297110071918296, guid: c08ecfbbe69f12c40bff933c29d16810, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1106,7 +1101,19 @@ PrefabInstance:
     - target: {fileID: 103297110351216384, guid: c08ecfbbe69f12c40bff933c29d16810, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 741129550}
+      objectReference: {fileID: 741129551}
+    - target: {fileID: 103297110351216384, guid: c08ecfbbe69f12c40bff933c29d16810, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Exit
+      objectReference: {fileID: 0}
+    - target: {fileID: 103297110351216384, guid: c08ecfbbe69f12c40bff933c29d16810, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 103297110351216384, guid: c08ecfbbe69f12c40bff933c29d16810, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 103297110774905585, guid: c08ecfbbe69f12c40bff933c29d16810, type: 3}
       propertyPath: m_Name
       value: GameUI

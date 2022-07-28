@@ -103,4 +103,9 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void Exit()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }
